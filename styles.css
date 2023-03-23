@@ -1,18 +1,13 @@
 #container {
   display: flex;
+  width: 960px;
+  height: 960px;
   flex-wrap: wrap;
+  border: 1px solid black;
 }
 
 #container>div {
   border: 1px solid black;
-  height: 25px;
-  width: 25px;
-}
-
-#container>div:nth-child(17n + 1) {
-  width: 100%;
-  border: 0;
-  height: 0;
 }
 
 .drawn {
