@@ -1,6 +1,16 @@
+.control {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin: 20px;
+}
+
 #container {
   display: flex;
-  width: 960px;
+  justify-content: center;
+  max-width: 960px;
   height: 960px;
   flex-wrap: wrap;
   border: 1px solid black;

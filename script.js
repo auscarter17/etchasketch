@@ -1,26 +1,55 @@
 let containerEl = document.getElementById('container');
 
+let btn = document.querySelector('.btn');
+
 let gridCount = 16;
 
-for (j = 0; j < gridCount; j++){
-  for (i = 0; i < gridCount; i++) {
-    const squares = document.createElement('div');
-    squares.className = 'gridSquare';
-    containerEl.appendChild(squares);
-    console.log('one squary boi');
-    squares.style.width = "100%";
-      let height = (960 - (gridCount * 2)) / gridCount;
-      squares.style.height = `${height}px`;
-      squares.style.width = `${height}px`;
-  }
+function removeGrid() {
+  let squares = document.querySelectorAll('.gridSquare');
+  squares.forEach(square => {
+    square.remove();
+  })
 }
 
 
-let squares = document.querySelectorAll('.gridSquare');
-
-squares.forEach(square => {
-  square.addEventListener('mouseover', () => {
-    console.log('drawn');
-    square.classList.add('drawn');
+function generateSquares() {
+  removeGrid();
+  for (j = 0; j < gridCount; j++){
+    for (i = 0; i < gridCount; i++) {
+      var createSquares = document.createElement('div');
+      createSquares.className = 'gridSquare';
+      containerEl.appendChild(createSquares);
+      createSquares.style.width = "100%";
+        let height = (960 - (gridCount * 2)) / gridCount;
+        createSquares.style.height = `${height}px`;
+        createSquares.style.width = `${height}px`;
+    }
+  }
+  let squares = document.querySelectorAll('.gridSquare')
+  squares.forEach(square => {
+    square.addEventListener('mouseover', () => {
+      console.log('drawn');
+      square.classList.add('drawn');
+    })
   })
+}
+
+
+
+btn.addEventListener('click', () => {
+  userGrid = prompt('How many squares tall should the new grid be? (Max 100)');
+  if (userGrid > 100) {
+    alert('Please enter a number no greater than 100');
+  } else if (isNaN(userGrid)) {
+    alert('Please enter a valid number');
+  } else if (userGrid < 1) {
+    alert('Please enter a number greater than 0.')
+  } else {
+    gridCount = userGrid;
+    generateSquares();
+  }
 })
+
+
+
+generateSquares();
