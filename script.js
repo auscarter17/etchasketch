@@ -6,13 +6,10 @@ const resizeButton = document.querySelector('.resize-button')
 
 function makeGrid(rows, columns) {
   for (let i = 0; i < columns; i++) {
-    let rowDiv = document.createElement('div')
-    rowDiv.classList.add('row-div')
-    containerEl.appendChild(rowDiv)
     for (let j = 0; j < rows; j++) {
       let div = document.createElement('div')
       div.classList.add('square')
-      rowDiv.appendChild(div)
+      containerEl.appendChild(div)
     }
   }
   const squares = document.querySelectorAll('.square')
@@ -36,6 +33,7 @@ function resizeGrid() {
   } else {
     containerEl.innerHTML = ''
     makeGrid(squaresPerSide, squaresPerSide)
+    containerEl.style.setProperty('--grid-size', squaresPerSide)
   }
 }
 
