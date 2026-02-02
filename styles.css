@@ -12,3 +12,7 @@
 .row-div {
   display: flex;
 }
+
+.filled {
+  background-color: black;
+}

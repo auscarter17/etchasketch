@@ -11,10 +11,16 @@ function makeGrid(rows, columns) {
       let div = document.createElement('div')
       div.classList.add('square')
       rowDiv.appendChild(div)
-      console.log('square made')
     }
   }
+  const squares = document.querySelectorAll('.square')
+  squares.forEach(square => {
+    square.addEventListener('mouseover', (event) => {
+      square.classList.add('filled')
+    })
+  })
 }
 
-console.log('making grid...')
 makeGrid(rows, columns)
+
+
